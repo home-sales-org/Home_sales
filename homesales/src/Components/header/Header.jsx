@@ -8,7 +8,7 @@ import { useState } from "react";
 import { FaFacebookF, FaTelegramPlane, FaPinterestP } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { TiSocialTumbler } from "react-icons/ti";
-
+import { FaChevronLeft } from "react-icons/fa";
 
 export default function Header() {
   const Amlak = [
@@ -119,10 +119,12 @@ export default function Header() {
             <li className="py-2">
               <Link href={""}>خانه</Link>
             </li>
-            <li className="py-2">
+            <li className="py-2 flex justify-between">
+              <FaChevronLeft className="absolute left-5" />
               <Link href={""}>املاک</Link>
             </li>
-            <li className="py-2">
+            <li className="py-2 flex justify-between">
+              <FaChevronLeft className="absolute left-5" />
               <Link href={""}>نمایندگان</Link>
             </li>
             <li className="py-2">
@@ -131,7 +133,8 @@ export default function Header() {
             <li className="py-2">
               <Link href={""}>سوالات متداول</Link>
             </li>
-            <li className="py-2">
+            <li className="py-2 flex justify-between">
+              <FaChevronLeft className="absolute left-5" />
               <Link href={""}>اخبار</Link>
             </li>
             <li className="py-2">
