@@ -48,11 +48,11 @@ export default function Header() {
           >
             املاک
             {showAmlakList && (
-              <ul className="absolute right-0 top-10 bg-white shadow-lg rounded-xl p-3 z-50 text-right w-40">
+              <ul className="absolute right-0 top-10 bg-white text-black shadow-lg rounded-xl p-3 z-50 text-right w-40">
                 {Amlak.map((item, index) => (
                   <li
                     key={index}
-                    className="hover:bg-blue-500 hover:text-white py-1 px-3 cursor-pointer"
+                    className="text-black hover:bg-blue-500 hover:text-white py-1 px-3 cursor-pointer"
                   >
                     {item}
                   </li>
@@ -61,17 +61,17 @@ export default function Header() {
             )}
           </li>
           <li
-            className="relative hover:text-blue-400 p-1.5"
+            className="relative text-black  hover:text-blue-400 p-1.5"
             onMouseEnter={() => setShowRepresentatives(true)}
             onMouseLeave={() => setShowRepresentatives(false)}
           >
             نمایندگان
             {showRepresentatives && (
-              <ul className="absolute right-0 top-10 bg-white shadow-lg rounded-xl p-3 z-50 text-right w-40">
+              <ul className="text-black  absolute right-0 top-10 bg-white shadow-lg rounded-xl p-3 z-50 text-right w-40">
                 {Representatives.map((item, index) => (
                   <li
                     key={index}
-                    className="hover:bg-blue-500 hover:text-white py-1 px-3 cursor-pointer"
+                    className="text-black  hover:bg-blue-500 hover:text-white py-1 px-3 cursor-pointer"
                   >
                     {item}
                   </li>
@@ -88,11 +88,11 @@ export default function Header() {
           >
             اخبار
             {showNews && (
-              <ul className="absolute right-0 top-10 bg-white shadow-lg rounded-xl p-3 z-50 text-right w-40">
+              <ul className="text-black  absolute right-0 top-10 bg-white shadow-lg rounded-xl p-3 z-50 text-right w-40">
                 {News.map((item, index) => (
                   <li
                     key={index}
-                    className="hover:bg-blue-500 hover:text-white py-1 px-3 cursor-pointer"
+                    className="text-black  hover:bg-blue-500 hover:text-white py-1 px-3 cursor-pointer"
                   >
                     {item}
                   </li>
@@ -100,7 +100,7 @@ export default function Header() {
               </ul>
             )}
           </li>
-          <li className="hover:text-blue-400 p-1.5">ارتباط باما</li>
+          <li className="hover:bg-blue-400 p-1.5">ارتباط باما</li>
         </ul>
         <Link href="/" className="hidden lg:block">
           <p className="bg-blue-500 text-white font-bold px-4 py-2 rounded-full">
