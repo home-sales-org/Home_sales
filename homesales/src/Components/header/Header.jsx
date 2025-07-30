@@ -13,14 +13,20 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const Amlak = [
-    "لیست املاک",
-    "املاک مرتبط",
-    "ملک تکی",
-    "برای اجاره",
-    "برای فروش",
+    { label: "لیست املاک", href: "/realstate/list" },
+    { label: "املاک مرتبط", href: "/realstate/related" },
+    { label: "ملک تکی", href: "/realstate/single" },
+    { label: "برای اجاره", href: "/realstate/rent" },
+    { label: "برای فروش", href: "/realstate/sale" },
   ];
-  const Representatives = ["لیست نمایندگان", "صفحه نمایندگان"];
-  const News = ["اخبار ما", "وبلاگ"];
+  const Representatives = [
+    { label: "لیست نمایندگان", href: "/representatives/list" },
+    { label: "صفحه نمایندگان", href: "/representatives/page" },
+  ];
+  const News = [
+    { label: "اخبار ما", href: "/news/posts" },
+    { label: "وبلاگ", href: "/news/blog" },
+  ];
 
   const [showAmlakList, setShowAmlakList] = useState(false);
   const [showRepresentatives, setShowRepresentatives] = useState(false);
@@ -80,7 +86,7 @@ export default function Header() {
             onMouseEnter={() => setShowAmlakList(true)}
             onMouseLeave={() => setShowAmlakList(false)}
           >
-            املاک
+            <Link href="/realstate">املاک</Link>
             <AnimatePresence>
               {showAmlakList && (
                 <motion.ul
@@ -93,9 +99,11 @@ export default function Header() {
                   {Amlak.map((item, index) => (
                     <li
                       key={index}
-                      className="text-black hover:bg-blue-500 hover:text-white py-1 px-3 cursor-pointer"
+                      className="py-1 px-3 cursor-pointer hover:bg-blue-500 hover:text-white"
                     >
-                      {item}
+                      <Link href={item.href}>
+                        <span className="text-black">{item.label}</span>
+                      </Link>
                     </li>
                   ))}
                 </motion.ul>
@@ -108,7 +116,7 @@ export default function Header() {
             onMouseEnter={() => setShowRepresentatives(true)}
             onMouseLeave={() => setShowRepresentatives(false)}
           >
-            نمایندگان
+            <Link href="/representatives">نمایندگان</Link>
             <AnimatePresence>
               {showRepresentatives && (
                 <motion.ul
@@ -121,9 +129,11 @@ export default function Header() {
                   {Representatives.map((item, index) => (
                     <li
                       key={index}
-                      className="text-black hover:bg-blue-500 hover:text-white py-1 px-3 cursor-pointer"
+                      className="py-1 px-3 cursor-pointer hover:bg-blue-500 hover:text-white"
                     >
-                      {item}
+                      <Link href={item.href}>
+                        <span className="text-black">{item.label}</span>
+                      </Link>
                     </li>
                   ))}
                 </motion.ul>
@@ -131,15 +141,19 @@ export default function Header() {
             </AnimatePresence>
           </li>
 
-          <li className="hover:text-blue-400 p-1.5">درباره ما</li>
-          <li className="hover:text-blue-400 p-1.5">سوالات متداول</li>
+          <li className="hover:text-blue-400 p-1.5">
+            <Link href="/aboutus">درباره ما</Link>
+          </li>
+          <li className="hover:text-blue-400 p-1.5">
+            <Link href="/faq">سوالات متداول</Link>
+          </li>
 
           <li
             className="relative hover:text-blue-400 p-1.5"
             onMouseEnter={() => setShowNews(true)}
             onMouseLeave={() => setShowNews(false)}
           >
-            اخبار
+            <Link href="/news">اخبار</Link>
             <AnimatePresence>
               {showNews && (
                 <motion.ul
@@ -152,9 +166,11 @@ export default function Header() {
                   {News.map((item, index) => (
                     <li
                       key={index}
-                      className="text-black hover:bg-blue-500 hover:text-white py-1 px-3 cursor-pointer"
+                      className="py-1 px-3 cursor-pointer hover:bg-blue-500 hover:text-white"
                     >
-                      {item}
+                      <Link href={item.href}>
+                        <span className="text-black">{item.label}</span>
+                      </Link>
                     </li>
                   ))}
                 </motion.ul>
@@ -162,7 +178,9 @@ export default function Header() {
             </AnimatePresence>
           </li>
 
-          <li className="hover:bg-blue-400 p-1.5">ارتباط باما</li>
+          <li className="hover:bg-blue-400 p-1.5">
+            <Link href="contactus">ارتباط باما</Link>
+          </li>
         </ul>
 
         <Link href="/" className="hidden lg:block">
@@ -191,7 +209,7 @@ export default function Header() {
               </li>
 
               <li className="py-2">
-                <Link href="">خانه</Link>
+                <Link href="/">خانه</Link>
               </li>
 
               <li className="py-2 flex justify-between w-full">
@@ -202,7 +220,7 @@ export default function Header() {
                     <FaChevronLeft className="absolute left-5" />
                   )}
                 </div>
-                <Link href="">املاک</Link>
+                <Link href="/realstate">املاک</Link>
               </li>
               <AnimatePresence>
                 {showAmlakList && (
@@ -214,8 +232,13 @@ export default function Header() {
                     className="w-full text-right mt-2 pr-4 space-y-1"
                   >
                     {Amlak.map((item, index) => (
-                      <li key={index} className="font-normal text-black">
-                        <Link href="/">{item}</Link>
+                      <li
+                        key={index}
+                        className="py-1 px-3 cursor-pointer"
+                      >
+                        <Link href={item.href}>
+                          <span className="text-black">{item.label}</span>
+                        </Link>
                       </li>
                     ))}
                   </motion.ul>
@@ -230,7 +253,7 @@ export default function Header() {
                     <FaChevronLeft className="absolute left-5" />
                   )}
                 </div>
-                <Link href="">نمایندگان</Link>
+                <Link href="/representatives">نمایندگان</Link>
               </li>
               <AnimatePresence>
                 {showRepresentatives && (
@@ -242,8 +265,13 @@ export default function Header() {
                     className="w-full text-right mt-2 pr-4 space-y-1"
                   >
                     {Representatives.map((item, index) => (
-                      <li key={index} className="font-normal text-black">
-                        <Link href="/">{item}</Link>
+                      <li
+                        key={index}
+                        className="py-1 px-3 cursor-pointer hover:bg-blue-500 hover:text-white"
+                      >
+                        <Link href={item.href}>
+                          <span className="text-black">{item.label}</span>
+                        </Link>
                       </li>
                     ))}
                   </motion.ul>
@@ -251,10 +279,10 @@ export default function Header() {
               </AnimatePresence>
 
               <li className="py-2">
-                <Link href="">درباره ما</Link>
+                <Link href="/aboutus">درباره ما</Link>
               </li>
               <li className="py-2">
-                <Link href="">سوالات متداول</Link>
+                <Link href="/faq">سوالات متداول</Link>
               </li>
 
               <li className="py-2 flex justify-between w-full">
@@ -265,7 +293,7 @@ export default function Header() {
                     <FaChevronLeft className="absolute left-5" />
                   )}
                 </div>
-                <Link href="">اخبار</Link>
+                <Link href="/news">اخبار</Link>
               </li>
               <AnimatePresence>
                 {showNews && (
@@ -277,8 +305,13 @@ export default function Header() {
                     className="w-full text-right mt-2 pr-4 space-y-1"
                   >
                     {News.map((item, index) => (
-                      <li key={index} className="font-normal text-black">
-                        <Link href="/">{item}</Link>
+                      <li
+                        key={index}
+                        className="py-1 px-3 cursor-pointer hover:bg-blue-500 hover:text-white"
+                      >
+                        <Link href={item.href}>
+                          <span className="text-black">{item.label}</span>
+                        </Link>
                       </li>
                     ))}
                   </motion.ul>
@@ -286,10 +319,7 @@ export default function Header() {
               </AnimatePresence>
 
               <li className="py-2">
-                <Link href="">وبلاگ</Link>
-              </li>
-              <li className="py-2">
-                <Link href="">ارتباط با ما</Link>
+                <Link href="/contactus">ارتباط با ما</Link>
               </li>
               <li className="py-2">
                 <div className="flex justify-around gap-2 items-center w-full">
