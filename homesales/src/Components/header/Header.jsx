@@ -267,7 +267,7 @@ export default function Header() {
                     {Representatives.map((item, index) => (
                       <li
                         key={index}
-                        className="py-1 px-3 cursor-pointer hover:bg-blue-500 hover:text-white"
+                        className="py-1 px-3 cursor-pointer"
                       >
                         <Link href={item.href}>
                           <span className="text-black">{item.label}</span>
@@ -307,7 +307,7 @@ export default function Header() {
                     {News.map((item, index) => (
                       <li
                         key={index}
-                        className="py-1 px-3 cursor-pointer hover:bg-blue-500 hover:text-white"
+                        className="py-1 px-3 cursor-pointer "
                       >
                         <Link href={item.href}>
                           <span className="text-black">{item.label}</span>
