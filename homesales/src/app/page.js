@@ -1,6 +1,10 @@
+"use client";
+import Header from '../Components/header/Header.jsx';
 
 export default function Home() {
   return (
-    <div>kasra</div>
+    <div>
+      <Header/>
+    </div>
   );
 }
